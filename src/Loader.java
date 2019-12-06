@@ -20,8 +20,7 @@ public class Loader {
                 todoList.add(deal);
             }
             else if(str.matches("ADD\\s\\d+\\s\\D+.+")){
-                Pattern pattern = Pattern.compile("\\s+");
-                String[] strings = pattern.split(str, 3);
+                String[] strings = str.split("\\s+", 3);
                 int index = Integer.parseInt(strings[1].trim());
                 String deal = str.substring(str.indexOf(strings[2]));
                 if (index <= todoList.size()) {
@@ -31,8 +30,7 @@ public class Loader {
                 }
             }
             else if(str.matches("EDIT\\s\\d+\\s\\D+.+")){
-                Pattern pattern = Pattern.compile("\\s+");
-                String[] strings = pattern.split(str, 3);
+                String[] strings = str.split("\\s+", 3);
                 int index = Integer.parseInt(strings[1].trim());
                 String deal = str.substring(str.indexOf(strings[2]));
                 if (index < todoList.size()) {
@@ -42,8 +40,7 @@ public class Loader {
                 }
             }
             else if(str.matches("DELETE\\s\\d+")){
-                Pattern pattern = Pattern.compile("\\s+");
-                String[] strings = pattern.split(str, 2);
+                String[] strings = str.split("\\s+", 2);
                 int index = Integer.parseInt(strings[1].trim());
                 if (index < todoList.size()) {
                     todoList.remove(index);
